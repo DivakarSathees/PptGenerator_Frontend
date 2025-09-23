@@ -1,0 +1,20 @@
+<div class="container">
+    <h2>PPT Generator</h2>
+    <form (ngSubmit)="onSubmit()" #pptForm="ngForm">
+    <label>Title:</label>
+    <input type="text" [(ngModel)]="request.title" name="title" required />
+
+    <label>Slides:</label>
+    <input type="number" [(ngModel)]="request.slides" name="slides" required min="1" />
+
+    <button type="submit" [disabled]="loading">Generate PPT</button>
+    </form>
+    <div *ngIf="loading" class="loading">Generating PPT...</div>
+
+    <!-- <div *ngIf="response" class="result">
+    <p>{{ response.message }}</p>
+    <p>Slides: {{ response.slides_count }}</p>
+    <button (click)="download()">Download PPT</button>
+    </div> -->
+</div>
+<app-ppt-editor *ngIf="slides.length > 0" [slides]="slides"></app-ppt-editor>

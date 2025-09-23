@@ -1,0 +1,67 @@
+<div *ngIf="slides.length > 0" class="slideshow">
+
+    <div class="sidebar">
+      <!-- Drag & Drop Slide List -->
+      <h3>Slide Order (Drag to reorder)</h3>
+      <div cdkDropList (cdkDropListDropped)="drop($event)" class="slide-list">
+        <div *ngFor="let s of slides; let i = index" cdkDrag class="slide-item">
+          {{ i + 1 }}. {{ s.title }}
+        </div>
+      </div>
+
+
+      <hr />
+      </div>
+
+    <div class="main-content">
+      <!-- Current Slide -->
+      <div class="slide">
+        <div style="border-color: #61c2c2; border-width: medium; border-style: groove; height: 377px;" *ngIf="renderSlides[currentIndex].isCode">
+          <h2>Code Snippet</h2>
+          <pre class="code-block">{{ renderSlides[currentIndex].code }}</pre>
+        </div>
+
+        <div style="border-color: #61c2c2; border-width: medium; border-style: groove; height: 377px;" *ngIf="!renderSlides[currentIndex].isCode">
+          <h2>
+            <input [(ngModel)]="renderSlides[currentIndex].title" class="title-input" />
+          </h2>
+
+          <ul>
+            <li *ngFor="let item of renderSlides[currentIndex].content; let j = index">
+              <input [(ngModel)]="item.text" class="bullet-input" />
+              <ul>
+                <li *ngFor="let sub of item.subpoints; let k = index">
+                  <input [(ngModel)]="item.subpoints[k]" class="subpoint-input" />
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <button type="button" (click)="addBullet(currentIndex)">+ Add Bullet</button>
+
+        <br>
+        <br>
+        <br>
+
+          <div *ngIf="renderSlides[currentIndex].notes !== undefined" class="notes-section" style="display: flex;">
+            <label>Notes:</label>
+            <textarea [(ngModel)]="renderSlides[currentIndex].notes" class="notes-input"></textarea>
+          </div>
+        </div>
+      </div>
+
+      <!-- Navigation -->
+      <div class="controls">
+        <button (click)="prevSlide()" [disabled]="currentIndex === 0">⬅ Previous</button>
+        <span>Slide {{ currentIndex + 1 }} / {{ renderSlides.length }}</span>
+        <button (click)="nextSlide()" [disabled]="currentIndex === renderSlides.length - 1">Next ➡</button>
+      </div>
+
+      <!-- Add / Remove -->
+      <div class="slide-actions">
+        <button (click)="addSlide()">+ Add Slide</button>
+        <button (click)="removeSlide()" [disabled]="slides.length === 1">🗑 Remove Slide</button>
+      </div>
+
+      <button class="save-btn" (click)="save()">💾 Save Changes</button>
+      </div>
+    </div>

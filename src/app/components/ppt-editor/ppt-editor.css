@@ -1,0 +1,41 @@
+/* .slideshow { 
+      border: 1px solid #ccc; 
+      border-radius: 8px; 
+      padding: 20px; 
+      width: 80%; 
+      margin: auto; 
+      background: #fff; 
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    } */
+    .slide { min-height: 300px; }
+    .title-input { font-size: 22px; font-weight: bold; width: 100%; border: none; }
+    .bullet-input, .subpoint-input, .notes-input { width: 100%; margin-bottom: 6px; border: none; }
+    .controls { margin-top: 20px; display: flex; justify-content: space-between; align-items: center; }
+    .save-btn { margin-top: 20px; padding: 10px 15px; background: #28a745; color: white; border: none; border-radius: 5px; }
+
+
+    .slideshow { border: 1px solid #ccc; padding: 20px; border-radius: 8px; max-width: 800px; margin: auto; background: #fff; }
+    .title-input { font-size: 22px; font-weight: bold; width: 100%; }
+    .bullet-input, .subpoint-input, .notes-input { width: 100%; margin-bottom: 6px; }
+    .code-block { background: #f5f5f5; padding: 12px; border-radius: 5px; white-space: pre-wrap; }
+    .controls { margin-top: 20px; display: flex; justify-content: space-between; }
+    .save-btn { margin-top: 20px; padding: 10px 15px; background: #28a745; color: white; border: none; border-radius: 5px; }
+
+    .slideshow { border: 1px solid #ccc; padding: 20px; border-radius: 8px; max-width: 5000px; margin: auto; background: #fff; display: flex; width: 94%;}
+    .slide-item { padding: 5px 10px; margin: 5px 0; background: #f1f1f1; border-radius: 4px; cursor: move; }
+    .title-input { font-size: 22px; font-weight: bold; width: 95%; }
+    .bullet-input, .subpoint-input, .notes-input { width: 95%; margin-bottom: 6px; }
+    .code-block { background: #f5f5f5; padding: 12px; border-radius: 5px; white-space: pre-wrap; }
+    .controls { margin-top: 20px; display: flex; justify-content: space-between; }
+    .slide-actions { margin-top: 10px; display: flex; gap: 10px; }
+    .save-btn { margin-top: 20px; padding: 10px 15px; background: #28a745; color: white; border: none; border-radius: 5px; }
+    .slide-list { border: 1px solid #ddd; padding: 10px; border-radius: 5px; background: #fafafa; max-height: 200px; overflow-y: auto; }
+ 
+    .main-content{
+        width: -webkit-fill-available;
+    }
+
+    .sidebar{
+        width: 30%;
+        margin-right: 20px;
+    }
