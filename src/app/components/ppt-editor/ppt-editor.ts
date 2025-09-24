@@ -50,6 +50,10 @@ export class PptEditor {
     }
   }
 
+  goToSlide(index: number) {
+    this.currentIndex = index;
+  }
+
   addSubpoints(slideIndex: number, bulletIndex: number) {
     this.slides[slideIndex].content[bulletIndex].subpoints = [''];
   }

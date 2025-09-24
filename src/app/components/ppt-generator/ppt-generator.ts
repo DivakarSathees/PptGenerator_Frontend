@@ -3,6 +3,9 @@ import { Ppt, PptResponse, SlideRequest } from '../../services/ppt';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { PptEditor } from '../ppt-editor/ppt-editor';
+import { NgZone } from '@angular/core';
+import { ChangeDetectorRef } from '@angular/core';
+
 
 @Component({
   selector: 'app-ppt-generator',
@@ -18,7 +21,7 @@ export class PptGenerator {
   slides: any[] = [];
 
 
-  constructor(private pptService: Ppt) {}
+  constructor(private pptService: Ppt, private ngZone: NgZone, private cdr: ChangeDetectorRef) {}
 
   onSubmit() {
     this.loading = true;
@@ -125,10 +128,16 @@ export class PptGenerator {
     //   ]
     this.pptService.generatePptSlides(this.request).subscribe({
       next: (res) => {
+        this.ngZone.run(() => { 
         this.response = res;
-        this.slides = (res as any).slides || []; // Assuming the response contains a 'slides' field
+        // this.slides = (res as any).slides || []; // Assuming the response contains a 'slides' field
+        this.slides = [...((res as any).slides || [])];
         console.log('Generated Slides:', this.slides);
         this.loading = false;
+        console.log(this.loading);
+        this.cdr.detectChanges();
+        
+        });
       },
       error: (err) => {
         console.error('Error:', err);

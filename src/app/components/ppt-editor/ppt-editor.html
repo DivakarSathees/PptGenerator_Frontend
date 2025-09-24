@@ -4,8 +4,8 @@
       <!-- Drag & Drop Slide List -->
       <h3>Slide Order (Drag to reorder)</h3>
       <div cdkDropList (cdkDropListDropped)="drop($event)" class="slide-list">
-        <div *ngFor="let s of slides; let i = index" cdkDrag class="slide-item">
-          {{ i + 1 }}. {{ s.title }}
+        <div *ngFor="let s of renderSlides; let i = index" cdkDrag class="slide-item" [ngClass]="{'active': i === currentIndex}" (click)="goToSlide(i)"> 
+          {{ i + 1 }}. {{ s.title || s.code.title }}
         </div>
       </div>
 
@@ -17,8 +17,8 @@
       <!-- Current Slide -->
       <div class="slide">
         <div style="border-color: #61c2c2; border-width: medium; border-style: groove; height: 377px;" *ngIf="renderSlides[currentIndex].isCode">
-          <h2>Code Snippet</h2>
-          <pre class="code-block">{{ renderSlides[currentIndex].code }}</pre>
+          <h2>{{ renderSlides[currentIndex].code.title }}</h2>
+          <pre class="code-block">{{ renderSlides[currentIndex].code.snippet }}</pre>
         </div>
 
         <div style="border-color: #61c2c2; border-width: medium; border-style: groove; height: 377px;" *ngIf="!renderSlides[currentIndex].isCode">
