@@ -29,7 +29,7 @@
     .controls { margin-top: 20px; display: flex; justify-content: space-between; }
     .slide-actions { margin-top: 10px; display: flex; gap: 10px; }
     .save-btn { margin-top: 20px; padding: 10px 15px; background: #28a745; color: white; border: none; border-radius: 5px; }
-    .slide-list { border: 1px solid #ddd; padding: 10px; border-radius: 5px; background: #fafafa; max-height: 200px; overflow-y: auto; }
+    .slide-list { border: 1px solid #ddd; padding: 10px; border-radius: 5px; background: #fafafa; max-height: 282px; overflow-y: auto; }
  
     .main-content{
         width: -webkit-fill-available;

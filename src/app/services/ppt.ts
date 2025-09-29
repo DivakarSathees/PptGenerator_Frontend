@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 export interface SlideRequest {
   title: string;
   slides: number;
+  model: string; // New field to specify the model
 }
 
 export interface PptResponse {
@@ -18,7 +19,8 @@ export interface PptResponse {
   providedIn: 'root'
 })
 export class Ppt {
-    private apiUrl = 'http://127.0.0.1:8000'; // FastAPI URL
+    // private apiUrl = 'http://127.0.0.1:8000'; // FastAPI URL
+    private apiUrl = 'https://pptxgenerator-python.onrender.com'
 
   constructor(private http: HttpClient) {}
 

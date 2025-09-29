@@ -15,7 +15,7 @@ import { ChangeDetectorRef } from '@angular/core';
   styleUrl: './ppt-generator.css'
 })
 export class PptGenerator {
-  request: SlideRequest = { title: '', slides: 5 };
+  request: SlideRequest = { title: '', slides: 5, model: 'groq' };
   response: PptResponse | null = null;
   loading = false;
   slides: any[] = [];

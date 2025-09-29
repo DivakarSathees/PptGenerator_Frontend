@@ -25,17 +25,20 @@
           <h2>
             <input [(ngModel)]="renderSlides[currentIndex].title" class="title-input" />
           </h2>
-
+          <div>
           <ul>
+          <div>
+
             <li *ngFor="let item of renderSlides[currentIndex].content; let j = index">
               <input [(ngModel)]="item.text" class="bullet-input" />
+              <!-- <textarea [(ngModel)]="item.text" class="bullet-input"></textarea> -->
               <ul>
                 <li *ngFor="let sub of item.subpoints; let k = index">
                   <input [(ngModel)]="item.subpoints[k]" class="subpoint-input" />
                 </li>
               </ul>
-            </li>
-          </ul>
+            </li></div>
+          </ul></div>
           <button type="button" (click)="addBullet(currentIndex)">+ Add Bullet</button>
 
         <br>

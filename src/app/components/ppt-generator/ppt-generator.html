@@ -1,6 +1,14 @@
 <div>
 <div class="container">
     <h2>PPT Generator</h2>
+    <div style="width: max-content;">
+    <!-- drop down to select the modal - groq or gemini -->
+    <label for="modelSelect">Select Model:</label>
+    <select id="modelSelect" [(ngModel)]="request.model" name="modelSelect">
+        <option value="groq">Groq: meta-llama/llama-4-maverick-17b-128e-instruct</option>
+        <option value="gemini">Gemini: gemini-2.5-flash</option>
+    </select>
+</div>
     <form (ngSubmit)="onSubmit()" #pptForm="ngForm">
     <label>Title:</label>
     <input type="text" [(ngModel)]="request.title" name="title" required />
