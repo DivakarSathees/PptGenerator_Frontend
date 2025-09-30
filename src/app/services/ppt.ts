@@ -35,7 +35,7 @@ export class Ppt {
 
 
   downloadPpt(pptId: string, filename: string): void {
-    const url = `http://127.0.0.1:8000/download/${pptId}`;
+    const url = `${this.apiUrl}/download/${pptId}`;
     const a = document.createElement('a');
     a.href = url;
     a.download = filename;
