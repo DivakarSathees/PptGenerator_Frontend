@@ -17,8 +17,8 @@
     <input type="number" [(ngModel)]="request.slides" name="slides" required min="1" />
 
     <div style="display: flex;align-items: center;">
-    <label for="scrape">Scrape image from Google:</label>
-    <input style="width: auto;" type="checkbox" id="scrape" [(ngModel)]="request.scrape_from_google" name="scrape_from_google" />
+    <label for="scrape" title="On checking, sample images will be fetched from Google. This may take 5–8 minutes and images may have copyrights. Please verify usage before including in your presentation.">Scrape image from Google:</label>
+    <input style="width: auto;" type="checkbox" id="scrape" [(ngModel)]="request.scrape_from_google" name="scrape_from_google" title="On checking, sample images will be fetched from Google. This may take 5–8 minutes and images may have copyrights. Please verify usage before including in your presentation." />
     </div>
 
     <button type="submit" [disabled]="loading">Generate PPT</button>
