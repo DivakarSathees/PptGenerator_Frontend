@@ -5,8 +5,8 @@
     <!-- drop down to select the modal - groq or gemini -->
     <label for="modelSelect">Select Model:</label>
     <select id="modelSelect" [(ngModel)]="request.model" name="modelSelect">
-        <option value="groq">Groq: meta-llama/llama-4-maverick-17b-128e-instruct</option>
-        <option value="gemini">Gemini: gemini-2.5-flash</option>
+        <option value="groq" title="Groq: Fast, accurate, and cost-effective. Uses meta-llama/llama-4-maverick-17b-128e-instruct for advanced slide generation.">Groq: meta-llama/llama-4-maverick-17b-128e-instruct</option>
+        <option value="gemini" title="Gemini: Google's latest model, excels at reasoning and creativity. Uses gemini-2.5-flash for rapid, high-quality slides.">Gemini: gemini-2.5-flash</option>
     </select>
 </div>
     <form (ngSubmit)="onSubmit()" #pptForm="ngForm">
@@ -15,6 +15,11 @@
 
     <label>Slides:</label>
     <input type="number" [(ngModel)]="request.slides" name="slides" required min="1" />
+
+    <div style="display: flex;align-items: center;">
+    <label for="scrape">Scrape image from Google:</label>
+    <input style="width: auto;" type="checkbox" id="scrape" [(ngModel)]="request.scrape_from_google" name="scrape_from_google" />
+    </div>
 
     <button type="submit" [disabled]="loading">Generate PPT</button>
     </form>

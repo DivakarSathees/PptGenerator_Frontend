@@ -6,6 +6,7 @@ export interface SlideRequest {
   title: string;
   slides: number;
   model: string; // New field to specify the model
+  scrape_from_google?: boolean; // New optional field to specify scraping from Google
 }
 
 export interface PptResponse {
